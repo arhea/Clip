@@ -1,0 +1,82 @@
+name: Clip
+options:
+  bundleIdPrefix: app
+  deploymentTarget:
+    macOS: "26.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+    SWIFT_APPROACHABLE_CONCURRENCY: YES
+    MACOSX_DEPLOYMENT_TARGET: "26.0"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    CODE_SIGN_STYLE: Automatic
+    CODE_SIGN_IDENTITY: "-"
+    ENABLE_HARDENED_RUNTIME: YES
+    DEAD_CODE_STRIPPING: YES
+
+configFiles:
+  Debug: Config/Local.xcconfig
+  Release: Config/Local.xcconfig
+
+targets:
+  Clip:
+    type: application
+    platform: macOS
+    sources:
+      - path: Clip
+    info:
+      path: Clip/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: Clip
+        CFBundleIconName: AppIcon
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSApplicationCategoryType: public.app-category.productivity
+        LSUIElement: true
+        NSHumanReadableCopyright: "Copyright © 2026 Clip contributors. MIT License."
+        NSScreenCaptureUsageDescription: Clip needs screen recording access to capture screenshots.
+        CFBundleDocumentTypes:
+          - CFBundleTypeName: Image
+            CFBundleTypeRole: Viewer
+            LSHandlerRank: Alternate
+            LSItemContentTypes: [public.image]
+    entitlements:
+      path: Clip/Resources/Clip.entitlements
+      properties:
+        com.apple.security.app-sandbox: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.Clip
+        PRODUCT_NAME: Clip
+        GENERATE_INFOPLIST_FILE: NO
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+
+  ClipTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: ClipTests
+    dependencies:
+      - target: Clip
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.Clip.Tests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: $(BUILT_PRODUCTS_DIR)/Clip.app/Contents/MacOS/Clip
+        BUNDLE_LOADER: $(TEST_HOST)
+
+schemes:
+  Clip:
+    build:
+      targets:
+        Clip: all
+        ClipTests: [test]
+    test:
+      targets:
+        - ClipTests

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Four rounded corner brackets: a capture selection. -->
+  <g fill="#0A84FF">
+    <rect x="232" y="232" width="208" height="76" rx="38"/>
+    <rect x="232" y="232" width="76" height="208" rx="38"/>
+    <rect x="584" y="232" width="208" height="76" rx="38"/>
+    <rect x="716" y="232" width="76" height="208" rx="38"/>
+    <rect x="232" y="716" width="208" height="76" rx="38"/>
+    <rect x="232" y="584" width="76" height="208" rx="38"/>
+    <rect x="584" y="716" width="208" height="76" rx="38"/>
+    <rect x="716" y="584" width="76" height="208" rx="38"/>
+  </g>
+</svg>

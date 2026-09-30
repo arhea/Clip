@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Clip's tapered annotation arrow, pointing up and to the right. -->
+  <polygon points="0,-18 262,-36 236,-104 412,0 236,104 262,36 0,18"
+           fill="#FF453A" stroke="#FF453A" stroke-width="20" stroke-linejoin="round"
+           transform="translate(368 656) rotate(-45)"/>
+</svg>

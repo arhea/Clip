@@ -1,0 +1,6 @@
+// Shared build settings. To sign with your own Apple Developer team (keeps the
+// Screen Recording permission stable across rebuilds), create
+// Config/Signing.xcconfig with:
+//   DEVELOPMENT_TEAM = YOURTEAMID
+//   CODE_SIGN_IDENTITY = Apple Development
+#include? "Signing.xcconfig"
